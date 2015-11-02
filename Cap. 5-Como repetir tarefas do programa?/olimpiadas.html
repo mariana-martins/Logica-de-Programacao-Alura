@@ -1,0 +1,23 @@
+<meta charset = "UTF-8">
+
+<script>
+var pulaLinha = function (){
+	document.write("<br>");
+};
+
+var mostra = function(frase){
+	document.write(frase);
+	pulaLinha();
+	pulaLinha();
+};
+
+var anoDeOlimpiadas = 1986;
+var anoLimite = parseInt(prompt("Qual o ano limite?"));
+
+while(anoDeOlimpiadas <= anoLimite)	{
+	mostra(anoDeOlimpiadas + " tem Olimpíadas!");
+	anoDeOlimpiadas = anoDeOlimpiadas + 4;
+}
+
+mostra("Ufa! Esses foram os anos de Olimpíadas até " + anoLimite + ".");
+</script>

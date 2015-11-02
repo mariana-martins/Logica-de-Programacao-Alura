@@ -1,0 +1,60 @@
+<meta charset = "UTF-8">
+
+<script>
+var pulaLinha = function (){
+	document.write("<br>");
+};
+
+var mostra = function(frase){
+	document.write(frase);
+	pulaLinha();
+	pulaLinha();
+};
+
+var sorteiaNumero = function () {
+	var sugestao = Math.round(Math.random() * 60)
+	if(sugestao == 0) {
+		return sorteiaNumero ();
+	} else {
+		return sugestao;
+	}
+};
+
+var numerosSorteados = [];
+
+while (numerosSorteados.length < 6) {
+	var novoNumero = sorteiaNumero();
+	var posNoArray = numerosSorteados.indexOf(novoNumero);
+	if(posNoArray == -1) {
+		numerosSorteados.push(novoNumero);
+	}
+}	
+
+var pedeNumero = function () {
+	var chute = parseInt(prompt("Diga um número!"));
+	return chute;
+};
+
+var numerosChutados = [];
+
+for(var i = 0; i < 6; i++) {
+	numerosChutados.push(pedeNumero());
+}	
+
+var numerosAcertados = [];
+
+for(var i = 0; i < numerosSorteados.length; i++) {
+	var numeroSorteado = numerosSorteados[i];
+	for(var j = 0; j < numerosChutados.length; j++) {
+		var numeroChutado = numerosChutados[j];
+		if(numeroSorteado == numeroChutado) {
+			numerosAcertados.push(numeroSorteado);
+			break;
+		}
+	}
+}
+
+mostra("Você acertou: " + numerosAcertados.length + "!!!");
+
+
+</script>
